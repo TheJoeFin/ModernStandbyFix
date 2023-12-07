@@ -10,20 +10,16 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "6.0.x"
-
-      # - run: dotnet build ${{ env.PROJECT_PATH }} -c Release
-
-      # - run: dotnet test ${{ env.PROJECT_PATH }} -c Release --no-build --no-restore --verbosity normal
+          dotnet-version: "8.0.x"
 
       - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --self-contained -r win-x64 -o publish
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ModernStandbyFix
-          path: .publish/*
+          path: .\publish
