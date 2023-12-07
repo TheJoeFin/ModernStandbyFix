@@ -1,4 +1,4 @@
-name: "Build Text Grab"
+name: "Build Modern Standby"
 on:
   push:
     branches: [master]
@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ModernStandbyFix
-          path: .publish/
+          path: .publish/*
